@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECNOVA | Servicio Técnico Informático</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050811',
+                            card: '#0c1322',
+                            primary: '#00d2ff',
+                            secondary: '#0072ff',
+                            accent: '#00f2fe',
+                            glow: '#00d2ff80'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(0, 210, 255, 0.35)',
+                        'neon-lg': '0 0 35px rgba(0, 210, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050811;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* High-tech PC hardware background layers */
+        .pc-hardware-bg {
+            background-color: #050811;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(0, 210, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 80%, rgba(0, 114, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 10% 50%, rgba(0, 242, 254, 0.08) 0%, transparent 45%),
+                linear-gradient(to bottom, rgba(5, 8, 17, 0.85), rgba(5, 8, 17, 0.95)),
+                url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1920&auto=format&fit=crop');
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-component-bg {
+            background-image: 
+                linear-gradient(to right, rgba(5, 8, 17, 0.92) 0%, rgba(5, 8, 17, 0.78) 50%, rgba(5, 8, 17, 0.92) 100%),
+                linear-gradient(to bottom, rgba(5, 8, 17, 0.7) 0%, rgba(5, 8, 17, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .services-hardware-bg {
+            background-image: 
+                linear-gradient(to bottom, rgba(5, 8, 17, 0.95), rgba(5, 8, 17, 0.88), rgba(5, 8, 17, 0.95)),
+                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(12, 19, 34, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 210, 255, 0.45);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.22);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 14px rgba(0, 210, 255, 0.7);
+        }
+
+        .glow-border {
+            border: 1px solid rgba(0, 210, 255, 0.35);
+        }
+
+        .brand-logo-hex {
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.6));
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050811;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d2ff;
+        }
+    </style>
+</head>
+<body class="pc-hardware-bg min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 glass-card border-b border-gray-800/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Official Logo Emblem & Text -->
+                <a href="#" class="flex items-center gap-3 group py-2">
+                    <div class="relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-950 border border-cyan-500/50 p-1.5 shadow-neon group-hover:scale-105 transition-all duration-300">
+                        <!-- Official TECNOVA Hexagon Vector Emblem -->
+                        <svg viewBox="0 0 100 100" class="w-full h-full brand-logo-hex">
+                            <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#00d2ff" stroke-width="6" stroke-linejoin="round"/>
+                            <polygon points="50,12 83,31 83,69 50,88 17,69 17,31" fill="#030b1e" stroke="#0072ff" stroke-width="3"/>
+                            <!-- Monitor & Circuit -->
+                            <rect x="30" y="32" width="30" height="22" rx="2" fill="none" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="45" y1="54" x2="45" y2="60" stroke="#00d2ff" stroke-width="2.5"/>
+                            <line x1="38" y1="60" x2="52" y2="60" stroke="#00d2ff" stroke-width="2.5"/>
+                            <circle cx="45" cy="40" r="2" fill="#00f2fe"/>
+                            <line x1="45" y1="36" x2="45" y2="38" stroke="#00f2fe" stroke-width="1.5"/>
+                            <line x1="40" y1="40" x2="36" y2="40" stroke="#00f2fe" stroke-width="1.5"/>
+                            <line x1="50" y1="40" x2="54" y2="40" stroke="#00f2fe" stroke-width="1.5"/>
+                            <!-- Tower Cabinet -->
+                            <rect x="63" y="30" width="10" height="30" rx="1" fill="none" stroke="#00d2ff" stroke-width="2"/>
+                            <circle cx="68" cy="35" r="1.5" fill="#00d2ff"/>
+                            <circle cx="68" cy="40" r="1.5" fill="#00d2ff"/>
+                            <!-- Screwdriver / Tools Left -->
+                            <line x1="24" y1="32" x2="24" y2="58" stroke="#0072ff" stroke-width="2"/>
+                            <rect x="22.5" y="50" width="3" height="8" fill="#00d2ff"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold tracking-tight text-white font-mono leading-none">TEC<span class="text-cyan-400">NOVA</span></span>
+                        <span class="text-[9px] font-bold text-cyan-300 tracking-widest uppercase mt-1">Servicio Técnico Informático</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#inicio" class="text-gray-300 hover:text-cyan-400 transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-cyan-400 transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-gray-300 hover:text-cyan-400 transition-colors">¿Por qué elegirnos?</a>
+                    <a href="#presupuesto" class="text-gray-300 hover:text-cyan-400 transition-colors">Cotizador</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-cyan-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center">
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quisiera%20hacer%20una%20consulta%20sobre%20servicio%20t%C3%A9cnico." 
+                       target="_blank"
+                       class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-xl group bg-gradient-to-br from-cyan-500 to-blue-600 group-hover:from-cyan-500 group-hover:to-blue-600 hover:text-white text-white shadow-neon hover:shadow-neon-lg transition-all duration-300">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-slate-950 rounded-[10px] group-hover:bg-opacity-0 flex items-center gap-2">
+                            <i data-lucide="message-square" class="w-4 h-4 text-cyan-400 group-hover:text-white"></i>
+                            <span>Consulta Rápida</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Abrir menú">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-gray-300 hover:text-cyan-400">Inicio</a>
+            <a href="#servicios" class="block py-2 text-gray-300 hover:text-cyan-400">Servicios</a>
+            <a href="#nosotros" class="block py-2 text-gray-300 hover:text-cyan-400">¿Por qué elegirnos?</a>
+            <a href="#presupuesto" class="block py-2 text-gray-300 hover:text-cyan-400">Cotizador Rápido</a>
+            <a href="#contacto" class="block py-2 text-gray-300 hover:text-cyan-400">Contacto</a>
+            <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quisiera%20hacer%20una%20consulta%20sobre%20servicio%20t%C3%A9cnico." 
+               target="_blank" 
+               class="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-medium mt-2">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                <span>Enviar WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-12 pb-20 md:py-28 overflow-hidden hero-component-bg border-b border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card glow-border text-cyan-300 text-xs sm:text-sm font-medium">
+                        <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>
+                        <span>Servicio Técnico Informático • Argentina - San Juan - Pocito</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Tu equipo, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 glow-text">en buenas manos.</span>
+                    </h1>
+
+                    <p class="text-cyan-300 font-semibold text-lg sm:text-xl tracking-wide">
+                        Soluciones rápidas, seguras y confiables.
+                    </p>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Reparación especializada de PC y Notebooks, optimización profunda de sistemas, eliminación de virus, actualización de hardware (SSD y RAM) y armado de computadoras a medida.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20necesito%20un%20diagn%C3%B3stico%20para%20mi%20equipo." 
+                           target="_blank"
+                           class="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl shadow-neon hover:shadow-neon-lg hover:scale-[1.02] transition-all duration-300">
+                            <i data-lucide="wrench" class="w-5 h-5"></i>
+                            <span>Solicitar Diagnóstico</span>
+                        </a>
+
+                        <a href="#servicios" 
+                           class="flex items-center justify-center gap-2 px-8 py-4 glass-card hover:bg-slate-800 text-gray-200 font-semibold rounded-xl border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
+                            <span>Ver Servicios</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4 text-cyan-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats / Highlights -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-gray-800/80">
+                        <div class="glass-card p-3.5 rounded-xl text-center">
+                            <i data-lucide="shield" class="w-5 h-5 text-cyan-400 mx-auto mb-1"></i>
+                            <span class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Garantía</span>
+                            <span class="text-sm font-bold text-white">Confianza</span>
+                        </div>
+                        <div class="glass-card p-3.5 rounded-xl text-center">
+                            <i data-lucide="zap" class="w-5 h-5 text-cyan-400 mx-auto mb-1"></i>
+                            <span class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Atención</span>
+                            <span class="text-sm font-bold text-white">Rapidez</span>
+                        </div>
+                        <div class="glass-card p-3.5 rounded-xl text-center">
+                            <i data-lucide="award" class="w-5 h-5 text-cyan-400 mx-auto mb-1"></i>
+                            <span class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Calidad</span>
+                            <span class="text-sm font-bold text-white">Experiencia</span>
+                        </div>
+                        <div class="glass-card p-3.5 rounded-xl text-center">
+                            <i data-lucide="user-check" class="w-5 h-5 text-cyan-400 mx-auto mb-1"></i>
+                            <span class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Trato</span>
+                            <span class="text-sm font-bold text-white">Personalizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Graphic Showcase -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Glow Backing -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-2xl opacity-35 animate-pulse"></div>
+                        
+                        <!-- Main Frame Showcase -->
+                        <div class="relative glass-card p-6 rounded-3xl border border-cyan-500/40 space-y-6">
+                            <!-- Visual Official Emblem Showcase Box -->
+                            <div class="relative rounded-2xl overflow-hidden bg-slate-950 p-8 border border-gray-800 flex flex-col items-center text-center">
+                                <div class="w-32 h-32 mb-4 relative flex items-center justify-center">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full brand-logo-hex filter drop-shadow-[0_0_15px_rgba(0,210,255,0.7)]">
+                                        <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#00d2ff" stroke-width="5" stroke-linejoin="round"/>
+                                        <polygon points="50,11 84,30.5 84,69.5 50,89 16,69.5 16,30.5" fill="#040e29" stroke="#0072ff" stroke-width="2.5"/>
+                                        <!-- Central PC Monitor & Circuit -->
+                                        <rect x="29" y="32" width="32" height="23" rx="2" fill="none" stroke="#00d2ff" stroke-width="2.5"/>
+                                        <line x1="45" y1="55" x2="45" y2="62" stroke="#00d2ff" stroke-width="2.5"/>
+                                        <line x1="37" y1="62" x2="53" y2="62" stroke="#00d2ff" stroke-width="2.5"/>
+                                        <circle cx="45" cy="41" r="2.5" fill="#00f2fe"/>
+                                        <line x1="45" y1="36" x2="45" y2="38.5" stroke="#00f2fe" stroke-width="1.5"/>
+                                        <line x1="40" y1="41" x2="35" y2="41" stroke="#00f2fe" stroke-width="1.5"/>
+                                        <line x1="50" y1="41" x2="55" y2="41" stroke="#00f2fe" stroke-width="1.5"/>
+                                        <!-- Computer Cabinet -->
+                                        <rect x="64" y="29" width="12" height="33" rx="1.5" fill="none" stroke="#00d2ff" stroke-width="2"/>
+                                        <circle cx="70" cy="35" r="1.5" fill="#00d2ff"/>
+                                        <circle cx="70" cy="40" r="1.5" fill="#00d2ff"/>
+                                        <!-- Screwdriver & Tools -->
+                                        <line x1="22" y1="30" x2="22" y2="60" stroke="#0072ff" stroke-width="2.5"/>
+                                        <rect x="20.5" y="52" width="3" height="8" fill="#00d2ff"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-extrabold text-white font-mono tracking-wider">TEC<span class="text-cyan-400">NOVA</span></h3>
+                                <p class="text-xs font-semibold tracking-widest text-cyan-300 uppercase mt-1">Servicio Técnico Informático</p>
+                                
+                                <!-- Floating Status Badge -->
+                                <div class="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-xs">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                    <span>Laboratorio Técnico Activo</span>
+                                </div>
+                            </div>
+
+                            <!-- Location Badge -->
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-gray-800">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+                                        <span class="text-sm font-medium text-gray-200">Placas, RAM, SSD & Fuentes</span>
+                                    </div>
+                                    <span class="text-xs font-semibold text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded-md border border-cyan-800/50">Hardware</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-gray-800">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400"></i>
+                                        <span class="text-xs font-medium text-gray-200">Ubicación Oficial</span>
+                                    </div>
+                                    <span class="text-xs font-semibold text-cyan-300">Argentina - San Juan - Pocito</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="py-20 relative services-hardware-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/90 px-3.5 py-1.5 rounded-full border border-cyan-800/60">
+                    Nuestros Servicios
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Informáticas Integrales</h2>
+                <p class="text-gray-300 text-sm sm:text-base">Cubrimos todas las necesidades de hardware y software con diagnósticos honestos y la máxima rapidez.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Reparación de PC y Notebooks</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Diagnóstico y solución de fallas de hardware y software. Desde problemas de rendimiento, encendido y temperatura hasta fallas en componentes.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quisiera%20consultar%20por%20Reparaci%C3%B3n%20de%20PC%20o%20Notebook." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="settings" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Formateo e Instalación de Sistemas</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Windows, macOS y otros sistemas operativos. Con configuración optimizada, instalación de drivers y programas esenciales para un mejor rendimiento.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quisiera%20consultar%20por%20Formateo%20e%20Instalaci%C3%B3n." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Eliminación de Virus y Malware</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Protección, limpieza profunda de virus, malware y spyware de tu equipo para garantizar un funcionamiento totalmente seguro.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20necesito%20Eliminaci%C3%B3n%20de%20Virus." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Actualización y Mejora de Equipos</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Instalación de SSD (M.2 NVMe / SATA), aumento de memoria RAM, sustitución de componentes y mejora radical del rendimiento.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quiero%20actualizar%20mi%20equipo%20con%20SSD/RAM." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="database" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Recuperación de Datos</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Recuperación segura de archivos, fotos y documentos de discos rígidos, pendrives y unidades con fallas o formateadas por error.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20necesito%20Recuperaci%C3%B3n%20de%20Datos." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                            <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Armado de Equipos a Medida</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Te asesoramos para que tengas el equipo ideal según tus necesidades y presupuesto (Gaming, Edición, Oficina o Workstation).
+                        </p>
+                    </div>
+                    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quiero%20asesoramiento%20para%20Armado%20de%20PC." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span>Consultar servicio</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK BUDGET CALCULATOR -->
+    <section id="presupuesto" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-10 rounded-3xl border border-cyan-500/30 shadow-neon">
+                
+                <div class="text-center space-y-3 mb-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Cotizador Rápido</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">¿Qué servicio necesita tu computadora?</h2>
+                    <p class="text-gray-400 text-sm">Selecciona las opciones para enviarnos una solicitud lista directamente a nuestro WhatsApp.</p>
+                </div>
+
+                <form id="calculator-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">1. Selecciona el tipo de equipo:</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="device_type" value="PC de Escritorio" class="peer hidden" checked>
+                                <div class="p-4 rounded-xl border border-gray-800 bg-slate-900/80 text-center peer-checked:border-cyan-400 peer-checked:bg-cyan-950/60 peer-checked:text-cyan-300 transition-all">
+                                    <i data-lucide="monitor" class="w-6 h-6 mx-auto mb-2"></i>
+                                    <span class="text-sm font-semibold block">PC de Escritorio</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="device_type" value="Notebook / Laptop" class="peer hidden">
+                                <div class="p-4 rounded-xl border border-gray-800 bg-slate-900/80 text-center peer-checked:border-cyan-400 peer-checked:bg-cyan-950/60 peer-checked:text-cyan-300 transition-all">
+                                    <i data-lucide="laptop" class="w-6 h-6 mx-auto mb-2"></i>
+                                    <span class="text-sm font-semibold block">Notebook / Laptop</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">2. Selecciona lo que necesitas:</label>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Reparación / Diagnóstico por Falla" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Diagnóstico / Reparación de Falla</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Formateo e Instalación de Sistema" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Formateo e Instalación de Sistemas</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Eliminación de Virus y Malware" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Eliminación de Virus y Malware</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Actualización SSD / Memoria RAM" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Mejora con SSD M.2 o Memoria RAM</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Recuperación de Datos Perdidos" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Recuperación de Datos</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-800 bg-slate-900/80 cursor-pointer hover:border-gray-700">
+                                <input type="checkbox" value="Armado de Equipo a Medida" class="service-option rounded bg-slate-900 border-gray-700 text-cyan-500 focus:ring-cyan-500 w-4 h-4">
+                                <span class="text-xs sm:text-sm text-gray-300">Armado de PC a Medida</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">3. Comentario o falla observada (opcional):</label>
+                        <textarea id="calc-notes" rows="2" placeholder="Ej: La máquina no da imagen, está muy lenta o hace ruidos..." 
+                                  class="w-full bg-slate-900/90 border border-gray-800 rounded-xl p-3 text-sm text-gray-200 focus:border-cyan-400 focus:outline-none"></textarea>
+                    </div>
+
+                    <button type="button" id="send-budget-btn" 
+                            class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl shadow-neon transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>Enviar Solicitud a WhatsApp (+54 264 499 3193)</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="nosotros" class="py-20 relative bg-slate-950/60 border-y border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/80 px-3.5 py-1 rounded-full border border-cyan-800/50">
+                        ¿Por qué elegir TECNOVA?
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tu computadora o notebook vuelve a funcionar como debe.</h2>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                        Entendemos la importancia de tu equipo para trabajar, estudiar o jugar. En TECNOVA nos comprometemos a darte soluciones reales y duraderas.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 glass-card rounded-2xl">
+                            <i data-lucide="user-check" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Atención Personalizada</h4>
+                            <p class="text-xs text-gray-400 mt-1">Trato directo y explicaciones claras en todo momento.</p>
+                        </div>
+
+                        <div class="p-4 glass-card rounded-2xl">
+                            <i data-lucide="file-check-2" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Diagnóstico Preciso y Honesto</h4>
+                            <p class="text-xs text-gray-400 mt-1">Evaluamos la falla real sin gastos innecesarios.</p>
+                        </div>
+
+                        <div class="p-4 glass-card rounded-2xl">
+                            <i data-lucide="badge-dollar-sign" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Precios Accesibles</h4>
+                            <p class="text-xs text-gray-400 mt-1">Tarifas competitivas e transparentes.</p>
+                        </div>
+
+                        <div class="p-4 glass-card rounded-2xl">
+                            <i data-lucide="award" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Experiencia en el Rubro</h4>
+                            <p class="text-xs text-gray-400 mt-1">Manejo seguro de componentes de alta gama.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature Box -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center space-y-6 relative overflow-hidden">
+                    <div class="w-24 h-24 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-3xl mx-auto flex items-center justify-center p-0.5 shadow-neon">
+                        <div class="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-12 h-12 text-cyan-400"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">¡Contá con nosotros!</h3>
+                        <p class="text-cyan-300 font-medium text-sm mt-1">Compromiso total con tu equipo.</p>
+                    </div>
+
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm mx-auto">
+                        Ubicados en <strong class="text-white">Argentina - San Juan - Pocito</strong>, listos para solucionar cualquier problema informático.
+                    </p>
+
+                    <div class="pt-4 border-t border-gray-800/80 flex items-center justify-center gap-6 text-xs text-gray-300">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Confianza
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Rapidez
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Garantía
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/50">
+                    CONTACTANOS
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Canales Directos de Atención</h2>
+                <p class="text-gray-400 text-sm">Escribinos o llamanos para coordinar la revisión de tu equipo.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <!-- Contact Card 1: WhatsApp -->
+                <a href="https://wa.me/542644993193" target="_blank" class="glass-card p-6 rounded-2xl text-center group hover:border-emerald-500/50 transition-all duration-300">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone-call" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">WhatsApp / Teléfono</h3>
+                    <p class="text-cyan-400 text-base font-bold mb-2">+54 264 499 3193</p>
+                    <span class="text-xs text-gray-400">Consultas y presupuestos inmediatos</span>
+                </a>
+
+                <!-- Contact Card 2: Email -->
+                <a href="mailto:tecnova011026@gmail.com" class="glass-card p-6 rounded-2xl text-center group hover:border-cyan-500/50 transition-all duration-300">
+                    <div class="w-14 h-14 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Correo Electrónico</h3>
+                    <p class="text-cyan-400 text-sm font-semibold mb-2">tecnova011026@gmail.com</p>
+                    <span class="text-xs text-gray-400">Atención técnica vía email</span>
+                </a>
+
+                <!-- Contact Card 3: Location -->
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="w-14 h-14 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Ubicación</h3>
+                    <p class="text-cyan-300 text-sm font-bold mt-1">Argentina - San Juan - Pocito</p>
+                    <p class="text-xs text-gray-400 mt-1">Atención local especializada</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="glass-card border-t border-gray-800/80 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-cyan-500/40 p-1 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#00d2ff" stroke-width="8"/>
+                        <rect x="30" y="32" width="30" height="22" fill="none" stroke="#00d2ff" stroke-width="5"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-wider text-white font-mono">TEC<span class="text-cyan-400">NOVA</span></span>
+                    <span class="block text-[9px] text-gray-400 uppercase tracking-widest">Servicio Técnico Informático • Argentina - San Juan - Pocito</span>
+                </div>
+            </div>
+            <p class="text-xs text-gray-500 text-center sm:text-right">
+                © <span id="year"></span> TECNOVA. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/542644993193?text=Hola%20TECNOVA%20(Argentina%20-%20San%20Juan%20-%20Pocito),%20quisiera%20hacer%20una%20consulta." 
+       target="_blank"
+       aria-label="Contactar por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-emerald-500/50 hover:scale-110 transition-all duration-300 group">
+        <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-gray-800 shadow-md">
+            ¡Chateá por WhatsApp!
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Send Calculator Output to WhatsApp
+        document.getElementById('send-budget-btn').addEventListener('click', () => {
+            const device = document.querySelector('input[name="device_type"]:checked').value;
+            const selectedServices = Array.from(document.querySelectorAll('.service-option:checked')).map(cb => cb.value);
+            const notes = document.getElementById('calc-notes').value.trim();
+
+            let message = `Hola TECNOVA (Argentina - San Juan - Pocito)! Quisiera solicitar un presupuesto / consulta:\n\n`;
+            message += `💻 *Equipo:* ${device}\n`;
+            
+            if (selectedServices.length > 0) {
+                message += `🛠️ *Servicios seleccionados:*\n- ${selectedServices.join('\n- ')}\n`;
+            } else {
+                message += `🛠️ *Servicio:* Consulta general\n`;
+            }
+
+            if (notes !== "") {
+                message += `\n📝 *Detalle extra:* ${notes}`;
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/542644993193?text=${encodedMessage}`, '_blank');
+        });
+    </script>
+</body>
+</html>
